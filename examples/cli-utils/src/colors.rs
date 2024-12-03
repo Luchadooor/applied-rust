@@ -7,7 +7,7 @@
 
 /// Returns a string with the ANSI escape code for red.
 /// # Examples:
-/// ```
+/// ```   
 /// use cli_utils::colors::*;
 /// println!("{}", red("Red"));
 /// ```
