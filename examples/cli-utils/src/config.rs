@@ -5,6 +5,14 @@
 //! let config = Logging::new();
 //! ```
 //! 
+
+/// Level of the log:
+/// # Example:
+///```
+/// use cli_utils::config::*;
+/// println!("LogLevel: {:#?}", LogLevel::Info);
+///```
+#[derive(Debug)]
 pub enum LogLevel {
     Debug,
     Info,
@@ -12,6 +20,13 @@ pub enum LogLevel {
     Error,
 }
 
+/// Output of the log:
+/// # Example:
+///```
+/// use cli_utils::config::*;
+/// println!("LogLevel: {:#?}", LogOutput::File("El Testo".to_string()));
+///```
+#[derive(Debug)]
 pub enum LogOutput {
     Stdout,
     Stderr,

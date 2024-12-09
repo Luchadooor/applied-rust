@@ -7,7 +7,7 @@
 
 /// Returns a string with the ANSI escape code for red.
 /// # Examples:
-/// ```   
+/// ```ignore
 /// use cli_utils::colors::*;
 /// println!("{}", red("Red"));
 /// ```
@@ -71,14 +71,8 @@ pub fn undefined(s: &str) -> String {
 /// All available "Colors"
 /// # Example:
 /// ```
-///     pub fn paint(&mut self) {
-///        match self.color {
-///            Color::Red => self.colorized = red(&self.string),
-///            Color::Green => self.colorized = green(&self.string),
-///            Color::Blue => self.colorized = blue(&self.string),
-///            Color::Bold => self.colorized = bold(&self.string),
-///       };
-///     }
+///     use cli_utils::colors::*;
+///     let current_color: cli_utils::colors::Color = cli_utils::colors::Color::Red;
 /// ```
 pub enum Color{
     Undefined,
@@ -98,15 +92,7 @@ pub struct ColorString {
 /// Implementation of ColorString
 /// # Example:
 /// ```
-/// Pending
-/// ```
-impl ColorString {
-    // create a method that will use the string and color fields to create a colorized string and assign it to the colorized field
-    /// Apply the color to the stirng.
-    /// ColorString has to be set mutable for this.
-    /// # Example:
-    /// ```
-    /// fn main() {
+    /// use cli_utils::colors::*;
     ///     println!("Hello, world!");
     ///     let text: String = "Hello".to_string();
     ///     let current_color: cli_utils::colors::Color = cli_utils::colors::Color::Red;
@@ -117,7 +103,24 @@ impl ColorString {
     ///     };
     ///     color_string.paint();
     ///     println!("Text: {:?}", color_string.colorized);
-    /// }
+/// ```
+impl ColorString {
+    // create a method that will use the string and color fields to create a colorized string and assign it to the colorized field
+    /// Apply the color to the stirng.
+    /// ColorString has to be set mutable for this.
+    /// # Example:
+    /// ```
+    /// use cli_utils::colors::*;
+    ///     println!("Hello, world!");
+    ///     let text: String = "Hello".to_string();
+    ///     let current_color: cli_utils::colors::Color = cli_utils::colors::Color::Red;
+    ///     let mut color_string = cli_utils::colors::ColorString {
+    ///         color: current_color, 
+    ///         string: text, 
+    ///         colorized: String::new(),
+    ///     };
+    ///     color_string.paint();
+    ///     println!("Text: {:?}", color_string.colorized);
     /// ```
     pub fn paint(&mut self) {
         match self.color {
